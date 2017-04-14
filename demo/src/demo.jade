@@ -4,7 +4,7 @@ head
 	link(rel="stylesheet", type="text/css", href="../../loaders.css")
 body
 	.main-box
-		.loaders-box
+		.loaders-box(style="display:none;")
 			.loader
 				.loader-inner.ball-pulse
 					div
@@ -192,12 +192,37 @@ body
 					div
 					div
 					div
-						
+		.loaders-box
 			.loader
-				.loader-inner.ball-scale-random
-					div
-					div
-					div
+				.loader-inner.overwatch-loading-1
+					.overwatch-box
+						div
+						div
+						div
+						div
+						div
+						div
+						div
+			.loader
+				.loader-inner.overwatch-loading-2
+					.overwatch-box
+						div.overwatch-logo
+							div.across-line
+							div.taper
+						div.overwatch-inner-ring3
+							div.inner-ring3-p1-c
+								div.p1-an
+									div.inner-ring3-p1-r
+							div.inner-ring3-p2-c
+								div.p2-an
+									div.inner-ring3-p2-r
+						div.overwatch-inner-ring1
+						div.overwatch-inner-ring2
+							div.inner-ring2-c
+								div.inner-ring2-r
+						div.overwatch-outer-ring1
+						div.overwatch-outer-ring2
+						
 	script.
 		document.addEventListener("DOMContentLoaded", function(){
 			document.querySelector(".main-box").className += " loaded"

@@ -1,0 +1,423 @@
+@import '../variables';
+@import '../mixins';
+
+$overwatch2-bg-color: #ed5565;
+$overwatch2-logo-color: #b6b8c0;
+
+@mixin overwatch2-positionAndBordder() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background-color: transparent;
+	border-radius: 50%;
+}
+
+
+@keyframes overwatch2-rotate{
+	0% {
+		transform: rotate(360deg);
+		clip: rect(96px, 200px, 108px, 100px);
+	}
+	50% {
+		clip: rect(92px, 200px, 108px, 100px);
+	}
+	100% {
+		transform: rotate(0deg);
+		clip: rect(96px, 200px, 108px, 100px);
+	}
+}
+
+@keyframes overwatch2-rotate-2{
+	0% {
+		transform: rotate(180deg);
+	}
+	50% {
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(540deg);
+	}
+}
+
+@keyframes overwatch2-rotate-3{
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(90deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes overwatch2-rotate-4{
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes overwatch2-rotate-5{
+	0% {
+		transform: rotate(120deg);
+	}
+	100% {
+		transform: rotate(480deg);
+	}
+}
+
+@keyframes overwatch2-rotate-6{
+	0% {
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(-90deg);
+	}
+}
+
+@keyframes overwatch2-ring-1{
+	0% {
+		transform: rotate(-223deg);
+	}
+	50% {
+		transform: rotate(-170deg);
+	}
+	100% {
+		transform: rotate(-223deg);
+	}
+}
+
+@keyframes overwatch2-ring-2{
+	0% {
+		transform: rotate(-205deg);
+	}
+	50% {
+		transform: rotate(-135deg);
+	}
+	100% {
+		transform: rotate(-205deg);
+	}
+}
+
+@keyframes overwatch2-ring-3{
+	0% {
+		transform: rotate(-45deg);
+	}
+	35.5% {
+		transform: rotate(135deg);
+	}
+	100% {
+		transform: rotate(135deg);
+	}
+}
+
+@keyframes overwatch2-ring-4{
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(0deg);
+	}
+	64.5% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes overwatch2-ring-5{
+	0% {
+		transform: rotate(-45deg);
+	}
+	35.5% {
+		transform: rotate(-45deg);
+	}
+	50% {
+		transform: rotate(135deg);
+	}
+	100% {
+		transform: rotate(135deg);
+	}
+}
+
+@keyframes overwatch2-ring-6{
+	0% {
+		transform: rotate(0deg);
+	}
+	64.5% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes overwatch2-ring-7{
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.overwatch-loading-2{
+	.overwatch-box{
+		position: relative;
+	}
+	.overwatch-logo{
+		width: 120px;
+		height: 120px;
+		margin: -80px 0 0 -80px;
+		@include overwatch2-positionAndBordder();
+		border: 20px solid $overwatch2-logo-color;
+		&:before{
+			content: "";
+			position: absolute;
+			bottom: 44px;
+			right: -9px;
+			width: 66px;
+			height: 20px;
+			background-color: $overwatch2-logo-color;
+			transform: rotate(45deg) skew(45deg);
+			transform-origin: bottom left;
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			bottom: -3px;
+			left: 11px;
+			width: 66px;
+			height: 20px;
+			background-color: $overwatch2-logo-color;
+			transform: rotate(-45deg) skew(-45deg);
+			transform-origin: bottom left;
+		}
+		.across-line{
+			&:before{
+				content: "";
+				position: absolute;
+				top: 15px;
+				right: -5px;
+				width: 22px;
+				height: 4px;
+				transform: rotate(-45deg);
+				transform-origin: bottom left;
+				z-index: 10;
+				background-color: $overwatch2-bg-color;
+			}
+			&:after{
+				content: "";
+				position: absolute;
+				top: 1px;
+				left: 1px;
+				width: 22px;
+				height: 4px;
+				transform: rotate(45deg);
+				transform-origin: bottom left;
+				z-index: 10;
+				background-color: $overwatch2-bg-color;
+			}
+		}
+		.taper{
+			&:before{
+				content: "";
+				position: absolute;
+				left: 63px;
+				bottom: 44px;
+				border-width: 0 20px 50px 0;
+				border-style: solid;
+				border-color: transparent transparent $overwatch2-logo-color;
+				width: 0;
+				height: 0;
+			}
+			&:after{
+				content: "";
+				position: absolute;
+				right: 63px;
+				bottom: 44px;
+				border-width: 0 0 50px 20px;
+				border-style: solid;
+				border-color: transparent transparent $overwatch2-logo-color;
+				width: 0;
+				height: 0;
+			}
+		}
+	}
+	.overwatch-inner-ring1{
+		width: 180px;
+		height: 180px;
+		margin: -100px 0px 0px -100px;
+		@include overwatch2-positionAndBordder();
+		border: 10px solid #f9d64a;
+		clip: rect(90px, 200px, 110px, 100px);
+		animation: overwatch2-rotate 3s linear infinite;
+	}
+
+	.overwatch-inner-ring2{
+		margin: -100px 0px 0px -100px;
+		width: 200px;
+		height: 200px;
+		@include overwatch2-positionAndBordder();
+		animation: overwatch2-rotate-3 2s linear infinite;
+		.inner-ring2-c{
+			position: relative;
+			width: 100px;
+			height: 200px;
+			overflow: hidden;
+			.inner-ring2-r{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 180px;
+				height: 180px;
+				border: 10px solid transparent;
+				border-radius: 50%;
+				border-top: 10px solid #f9d64a;
+				border-left: 10px solid #f9d64a;
+				transform: rotate(-0deg);
+				animation: overwatch2-ring-2 2s linear infinite;
+			}
+		}
+	}
+
+	.overwatch-inner-ring3{
+		margin: -100px 0px 0px -100px;
+		width: 200px;
+		height: 200px;
+		@include overwatch2-positionAndBordder();
+		animation: overwatch2-ring-7 2s linear infinite;
+		.inner-ring3-p1-c{
+			position: relative;
+			float: left;
+			width: 100px;
+			height: 200px;
+			overflow: hidden;
+		}
+		.inner-ring3-p1-r{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 180px;
+			height: 180px;
+			border: 10px solid transparent;
+			border-radius: 50%;
+			border-top: 10px solid rgba(189, 186, 62, 0.25);
+			border-left: 10px solid rgba(189, 186, 62, 0.25);
+			transform: rotate(-45deg);
+			animation: overwatch2-ring-5 2s linear infinite;
+		}
+		.p1-an{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			animation: overwatch2-ring-6 2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+		}
+		.inner-ring3-p2-c{
+			position: relative;
+			float: righ;
+			width: 100px;
+			height: 200px;
+			transform: rotate(180deg);
+			overflow: hidden;
+		}
+		.inner-ring3-p2-r{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 180px;
+			height: 180px;
+			border: 10px solid transparent;
+			border-radius: 50%;
+			border-top: 10px solid rgba(189, 186, 62, 0.25);
+			border-left: 10px solid rgba(189, 186, 62, 0.25);
+			transform: rotate(-45deg);
+			animation: overwatch2-ring-3 2s cubic-bezier(0.5, 0, 1, 0.5) infinite;
+		}
+		.p2-an{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			animation: overwatch2-ring-4 2s linear infinite;
+		}
+	}
+
+	.overwatch-outer-ring1{
+		margin: -116px 0px 0px -116px;
+		width: 220px;
+		height: 220px;
+		@include overwatch2-positionAndBordder();
+		border: 6px solid transparent;
+		&:before{
+			content: "";
+			position: absolute;
+			top: -6px;
+			left: -6px;
+			width: 220px;
+			height: 220px;
+			border: 6px solid rgba(161, 164, 176, 0.5);
+			border-radius: 50%;
+			clip: rect(105px, 232px, 127px, 100px);
+			animation: overwatch2-rotate-6 3s cubic-bezier(0.34, 0.07, 0.68, 0.93) infinite;
+
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			top: -6px;
+			left: -6px;
+			width: 220px;
+			height: 220px;
+			border: 6px solid rgba(161, 164, 176, 0.5);
+			border-radius: 50%;
+			clip: rect(112px, 232px, 120px, 100px);
+			animation: overwatch2-rotate-5 3s linear infinite reverse;
+		}
+	}
+	.overwatch-outer-ring2{
+		margin: -116px 0px 0px -116px;
+		width: 220px;
+		height: 220px;
+		@include overwatch2-positionAndBordder();
+		border: 6px solid transparent;
+		&:before{
+			content: "";
+			display: block;
+			position: absolute;
+			top: -6px;
+			left: -6px;
+			width: 220px;
+			height: 220px;
+			border: 6px solid rgba(161, 164, 176, 0.5);
+			border-radius: 50%;
+			transform: rotate(230deg);
+			clip: rect(60px, 232px, 172px, 100px);
+			animation: overwatch2-rotate-4 3s cubic-bezier(0.34, 0.07, 0.68, 0.93) infinite;
+		}
+		&:after{
+			content: "";
+			display: block;
+			position: absolute;
+			top: -6px;
+			left: -6px;
+			width: 220px;
+			height: 220px;
+			border: 6px solid rgba(161, 164, 176, 0.5);
+			border-radius: 50%;
+			transform: rotate(120deg);
+			clip: rect(80px, 232px, 152px, 100px);
+			animation: overwatch2-rotate-5 3s linear infinite;
+		}
+
+	}
+
+
+}

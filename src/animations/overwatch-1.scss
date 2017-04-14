@@ -1,0 +1,152 @@
+@import '../variables';
+@import '../mixins';
+
+@keyframes overwatch1-search {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	15%,
+	50% {
+		transform: scale(0.5);
+		opacity: 0;
+	}
+	65% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes overwatch1-rotate {
+	0% {
+		transform: rotate(0);
+		clip: rect(0px, 35px, 35px, 0px);
+	}
+	50% {
+		clip: rect(0px, 40px, 40px, 0px);
+		
+	}
+	100% {
+		transform: rotate(360deg);
+		clip: rect(0px, 35px, 35px, 0px);
+		
+	}
+}
+
+@keyframes overwatch1-rotate-2 {
+	0% {
+		transform: rotate(0);
+		clip: rect(0px, 164px, 150px, 0px);
+	}
+	50% {
+		clip: rect(0px, 164px, 0px, 0px);
+		transform: rotate(360deg);
+		
+	}
+	100% {
+		transform: rotate(720deg);
+		clip: rect(0px, 164px, 150px, 0px);
+		
+	}
+}
+
+@keyframes overwatch1-rotate-3 {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+		
+	}
+}
+
+$overwatch1-list-1: (1, 0px, 0px) (2, 0px, 42px) (3, 36px, 63px) (4, 72px, 42px) (5, 72px, 0px) (6, 36px, -21px) (7, 36px, 21px);
+
+@mixin overwatch1-loading-sync($time: 3s) {
+	@each $index, $top, $left in $overwatch1-list-1 {
+		> div:nth-child(#{$index}){
+			top: $top;
+			left: $left;
+			animation: overwatch1-search $time ease-in-out infinite;
+			animation-delay: $time / 14 * $index;
+		}
+	}
+}
+
+
+.overwatch-loading-1{
+	position: relative;
+	width: 160px;
+	height: 160px;
+	background-color: transparent;
+	border-radius: 50%;
+	border: 2px solid #e3e4dc;
+	&:before{
+		content: "";
+		display: block;
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		border: 2px solid #898a86;
+		border-radius: 50%;
+		width: 164px;
+		height: 164px;
+		box-sizing: border-box;
+		clip: rect(0px, 35px, 35px, 0px);
+		z-index: 10;
+		animation: overwatch1-rotate infinite;
+		animation-duration: 3s;
+		animation-timing-function: linear;
+	}
+	&:after{
+		content: "";
+		display: block;
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		border: 2px solid #c1bebb;
+		border-radius: 50%;
+		width: 164px;
+		height: 164px;
+		box-sizing: border-box;
+		clip: rect(0px, 164px, 150px, 0px);
+		z-index: 9;
+		animation: overwatch1-rotate-2 3s linear infinite;
+
+	}
+	.overwatch-box{
+		position: relative;
+		top: 33px;
+		left: 41px;
+		border-radius: 50%;
+		@include overwatch1-loading-sync();
+		>div {
+			position: absolute;
+			width: 40px;
+			height: 23px;
+			background-color: #556c82;
+			&:before{
+				content: "";
+				position: absolute;
+				top: -11px;
+				left: 0;
+				width: 0;
+				height: 0;
+				border-left: 20px solid transparent;
+				border-right: 20px solid transparent;
+				border-bottom: 11.5px solid #556c82;
+			}
+			&:after{
+				content: "";
+				position: absolute;
+				top: 23px;
+				left: 0;
+				width: 0;
+				height: 0;
+				border-left: 20px solid transparent;
+				border-right: 20px solid transparent;
+				border-top: 11.5px solid #556c82;
+			}
+		}
+	}
+}
