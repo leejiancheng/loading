@@ -1,47 +1,48 @@
-@import '../variables';
-@import '../mixins';
+@import "../variables";
+@import "../mixins";
 
 @keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
- }
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 .ball-rotate {
-  position: relative;
+	position: relative;
 
-  > div {
-    @include balls();
-    @include global-animation();
+	> div{
+		@include balls();
+		@include global-animation();
 
-    position: relative;
+		position: relative;
 
-    &:first-child {
-      animation: rotate 1s 0s cubic-bezier(.7,-.13,.22,.86) infinite;
-    }
+		&:first-child{
+			animation: rotate 1s 0s cubic-bezier(0.7, -0.13, 0.22, 0.86) infinite;
+		}
 
-    &:before, &:after {
-      @include balls();
+		&:before,
+		&:after{
+			@include balls();
 
-      content: "";
-      position: absolute;
-      opacity: 0.8;
-    }
+			content: "";
+			position: absolute;
+			opacity: 0.8;
+		}
 
-    &:before {
-      top: 0px;
-      left: -28px;
-    }
+		&:before{
+			top: 0px;
+			left: -28px;
+		}
 
-    &:after {
-      top: 0px;
-      left: 25px;
-    }
-  }
+		&:after{
+			top: 0px;
+			left: 25px;
+		}
+	}
 }

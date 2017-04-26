@@ -1,10 +1,10 @@
 doctype html5
 head
 	link(rel="stylesheet", type="text/css", href="demo.css")
-	link(rel="stylesheet", type="text/css", href="../../loaders.css")
+	link(rel="stylesheet", type="text/css", href="loaders.min.css")
 body
 	.main-box
-		.loaders-box(style="display:none;")
+		.loaders-box
 			.loader
 				.loader-inner.ball-pulse
 					div
@@ -222,6 +222,10 @@ body
 								div.inner-ring2-r
 						div.overwatch-outer-ring1
 						div.overwatch-outer-ring2
+		.loaders-box
+			.loader
+				.loader-inner.line-progress-loader
+					div
 						
 	script.
 		document.addEventListener("DOMContentLoaded", function(){
