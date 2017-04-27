@@ -1,0 +1,52 @@
+@import "../variables";
+@import "../mixins";
+
+@keyframes circle-rotate-loader {
+	0% {
+		transform: rotateY(0deg);
+	}
+	50% {
+		transform: rotateY(180deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+
+@mixin circle-ball-rotate {
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 50%;
+	border: 5px solid #fff;
+	box-shadow: 0 0 5px 0 #093;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	border-top-width: 0;
+	border-bottom-width: 0;
+}
+
+.circle-rotate-loader{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	font-size: 20px;
+	line-height: 90px;
+	text-align: center;
+	> div{
+		&:nth-child(2){
+			@include circle-ball-rotate();
+			border-color: #fff;
+			left: 0px;
+			width: 90px;
+			animation: circle-rotate-loader 2s linear infinite;
+		}
+		&:nth-child(3){
+			@include circle-ball-rotate();
+			border-color: #093;
+			left: -5px;
+			width: 100px;
+			animation: circle-rotate-loader 2s 0.5s linear infinite;
+		}
+	}
+}
