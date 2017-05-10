@@ -1,0 +1,36 @@
+@import "../variables";
+@import "../mixins";
+
+@for $i from 1 through 6 {
+	@keyframes line-increase1-#{$i} {
+		0% {
+			width: 0;
+		}
+		50% {
+			width: (random(100) + 30) + px;
+		}
+		100% {
+			width: 0;
+		}
+	}
+}
+
+@mixin line-increase-loader-1($n: 6) {
+	@for $i from 1 through $n {
+		> div:nth-child(#{$i}){
+			animation-name: line-increase1-#{$i};
+			animation-duration: ((random(100) / 100) + 0.8) + s;
+			animation-iteration-count: infinite;
+		}
+	}
+}
+
+.line-increase-1{
+	@include line-increase-loader-1();
+	> div{
+		width: 100px;
+		height: 10px;
+		background-color: #fff;
+		margin: 5px;
+	}
+}
